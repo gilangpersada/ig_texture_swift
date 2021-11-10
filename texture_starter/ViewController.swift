@@ -29,12 +29,12 @@ class ViewController: ASDKViewController<ASScrollNode> {
             guard let self = self else {return .init()}
             
             let insettedHeaderNode = ASInsetLayoutSpec(insets: .init(top: 40, left: 16, bottom: 0, right: 16), child: self.headerNode)
-            let insettedStoryCollectionNode = ASInsetLayoutSpec(insets: .init(top: 0, left: 16, bottom: 0, right:16), child: self.storyCollectionNode)
+//            let insettedStoryCollectionNode = ASInsetLayoutSpec(insets: .init(top: 0, left: 16, bottom: 0, right:16), child: self.storyCollectionNode)
            
             
             return ASStackLayoutSpec(direction: .vertical, spacing: 16, justifyContent: .start, alignItems: .stretch, children: [
                 insettedHeaderNode,
-                insettedStoryCollectionNode,
+                self.storyCollectionNode,
                 self.postTableNode
             ])
             

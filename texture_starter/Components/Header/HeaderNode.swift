@@ -25,6 +25,18 @@ final class HeaderNode: ASDisplayNode {
         return heartNode
     }()
     
+    private let heartButton:ASButtonNode={
+       let heartButton = ASButtonNode()
+        heartButton.setBackgroundImage(UIImage(named: "heart"), for: .normal)
+        
+        heartButton.style.preferredSize = .init(width: 25, height: 25)
+        return heartButton
+    }()
+    
+    @objc func heartTap(sender:UIButton?){
+        heartButton.setBackgroundImage(UIImage(named: "messenger"), for: .normal)
+    }
+    
     
     
     private let messengerNode:ASImageNode={
@@ -36,12 +48,13 @@ final class HeaderNode: ASDisplayNode {
     
     override init() {
         super.init()
+        heartButton.addTarget(self, action: #selector(HeaderNode.heartTap(sender:)), forControlEvents: .touchUpInside)
         self.automaticallyManagesSubnodes = true
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let buttonStack = ASStackLayoutSpec(direction: .horizontal, spacing: 24, justifyContent: .start, alignItems: .center, children: [
-            self.heartNode,
+            self.heartButton,
             self.messengerNode,
         ])
         

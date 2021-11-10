@@ -20,7 +20,7 @@ final class PostNode:ASCellNode{
        let dividerNode = ASDisplayNode()
         dividerNode.backgroundColor = .gray
         dividerNode.style.width = .init(unit: .fraction, value: 1)
-        dividerNode.style.height = ASDimensionMake(1)
+        dividerNode.style.height = ASDimensionMake(0.5)
         return dividerNode
     }()
     

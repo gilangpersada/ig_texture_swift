@@ -27,7 +27,6 @@ final class StoryCollectionNode:ASCollectionNode{
         self.dataSource = self
         self.style.width = .init(unit: .fraction, value: 1)
         self.style.height = .init(unit: .points, value: 84)
-        
     }
 }
 
@@ -38,8 +37,10 @@ extension StoryCollectionNode:ASCollectionDataSource{
     
     func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
         let story = stories[indexPath.row]
+        let firstIndex = indexPath.row == 0
+        let lastIndex = indexPath.row == stories.count-1
         return {
-            StoryNode(story: story)
+            StoryNode(story: story, firstIndex: firstIndex, lastIndex: lastIndex)
         }
     }
 }
